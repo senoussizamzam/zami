@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zamzam Senoussi Haggar - Bienvenue</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .intro {
+      height: 100vh;
+      background-image: url('https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .intro h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .intro p {
+      font-size: 1.5em;
+      margin: 10px 30px;
+    }
+
+    .intro img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      margin: 20px auto;
+      box-shadow: 0 0 10px #000;
+    }
+
+    .intro button {
+      padding: 12px 24px;
+      font-size: 1em;
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+
+    .intro button:hover {
+      background-color: #cc0066;
+    }
+
+    #main-content {
+      display: none;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* Navigation boutons */
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    nav button {
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      margin: 0 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    nav button:hover, nav button.active {
+      background-color: #cc0066;
+    }
+
+    /* Sections contenu */
+    section {
+      display: none;
+      padding: 20px;
+      background-color: #fff0f5;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ff66b2aa;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    /* Section À propos */
+    .apropos {
+      background-color: #ffc0cb; /* rose clair */
+      background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80'); /* nouvelle image cuisine */
+      background-size: cover;
+      background-position: center;
+      color: white;
+      position: relative;
+      min-height: 400px;
+    }
+
+    .apropos .overlay {
+      background-color: rgba(255, 192, 203, 0.7);
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #ff69b4;
+    }
+
+    .apropos h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .apropos p {
+      line-height: 1.8;
+      font-size: 1.1em;
+    }
+
+    /* Section Menu */
+    #menu {
+      background-image: url('https://images.unsplash.com/photo-1543353071-087092ec393a?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-position: center;
+      color: #4a004a;
+      padding: 40px 20px;
+      border-radius: 15px;
+      box-shadow: inset 0 0 0 1000px rgba(255, 182, 193, 0.4);
+    }
+
+    /* Section Commande en ligne */
+    #commande {
+      background-color: #ffc0cb; /* rose clair */
+      background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1600&q=80'); /* nouvelle image cuisine */
+      background-size: cover;
+      background-position: center;
+      color: #4a004a;
+      padding: 40px 20px;
+      border-radius: 15px;
+      box-shadow: inset 0 0 0 1000px rgba(255, 192, 203, 0.5);
+      min-height: 400px;
+    }
+
+    /* Section Contact */
+    .contact {
+      background-color: #ffc0cb; /* rose clair */
+      background-image: url('https://images.unsplash.com/photo-1514516870929-6798cdb7e1d3?auto=format&fit=crop&w=1600&q=80'); /* nouvelle image cuisine */
+      background-size: cover;
+      background-position: center;
+      color: #4a004a;
+      padding: 30px 20px;
+      border-radius: 15px;
+      border: none;
+      box-shadow: inset 0 0 0 1000px rgba(255, 182, 193, 0.4);
+      min-height: 350px;
+    }
+
+    /* Menu styling simple */
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .dish {
+      background-color: white;
+      border: 2px solid #ff99cc;
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .dish video {
+      width: 100%;
+      height: 150px;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 0 10px #cc0066;
+    }
+
+    .dish h3 {
+      color: #ff3399;
+      margin: 10px 0 5px 0;
+    }
+
+    .dish p.price {
+      font-weight: bold;
+      color: #cc0066;
+      margin: 0;
+    }
+
+    /* Form styling */
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: #fff0f5;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    form input, form select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #cc0066;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    form button {
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    /* Contact section */
+    .contact p {
+      margin: 8px 0;
+      font-size: 1.1em;
+    }
+    #retour-btn {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ff66b2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+#retour-btn:hover {
+  background-color: #cc0066;
+}
+
+
+  </style>
+
+  <script>
+    let derniereSection = null;
+
+function entrerSite() {
+  document.querySelector('.intro').style.display = 'none';
+  document.querySelector('#main-content').style.display = 'block';
+  showSection('apropos');
+  document.getElementById('retour-btn').style.display = 'inline-block';
+}
+
+function retourArriere() {
+  document.querySelector('.intro').style.display = 'none';
+  document.querySelector('#main-content').style.display = 'block';
+  if (derniereSection) {
+    showSection(derniereSection);
+  } else {
+    showSection('apropos');
+  }
+}
+
+function showSection(sectionId) {
+  derniereSection = sectionId;
+  document.querySelectorAll('#main-content section').forEach(sec => {
+    sec.classList.remove('active');
+  });
+  document.querySelectorAll('nav button').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  document.getElementById(sectionId).classList.add('active');
+  document.getElementById('btn-' + sectionId).classList.add('active');
+}
+
+
+    function entrerSite() {
+      document.querySelector('.intro').style.display = 'none';
+      document.querySelector('#main-content').style.display = 'block';
+      showSection('apropos');
+    }
+
+    function showSection(sectionId) {
+      document.querySelectorAll('#main-content section').forEach(sec => {
+        sec.classList.remove('active');
+      });
+      document.querySelectorAll('nav button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(sectionId).classList.add('active');
+      document.getElementById('btn-' + sectionId).classList.add('active');
+    }
+
+    function sendToWhatsApp() {
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const meal = document.getElementById('meal').value;
+      const portion = document.getElementById('portion').value;
+
+      if (!name || !phone) {
+        alert('Veuillez remplir votre nom et téléphone');
+        return;
+      }
+
+      const message = `Commande pour : ${name}%0ATéléphone : ${phone}%0APlat : ${meal}%0APortion : ${portion}`;
+      const whatsappNumber = "23568599509";
+      const url = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+      window.open(url, "_blank");
+    }
+  </script>
+</head>
+<body>
+
+  <div class="intro">
+    <img src="ali.jpg" alt="Zamzam Senoussi Haggar">
+    <h1>Zamzam Senoussi Haggar</h1>
+    <p>Bienvenue sur mon site personnel ✨<br>
+        Dedié aux passionnés de nourriture et des bonnes recettes!<br>
+        Je vous invite à explorer le monde de la gastronomie, des recettes simples aux plats raffinés!</p>
+    <button onclick="entrerSite()">Entrer</button>
+    <button onclick="retourArriere()" id="retour-btn" style="display: none;">Retour</button>
+
+  </div>
+
+  <div id="main-content">
+    <nav>
+      <button id="btn-apropos" onclick="showSection('apropos')">À propos</button>
+      <button id="btn-menu" onclick="showSection('menu')">Menu</button>
+      <button id="btn-commande" onclick="showSection('commande')">Commande en ligne</button>
+      <button id="btn-contact" onclick="showSection('contact')">Contact</button>
+    </nav>
+
+    <section id="apropos" class="apropos">
+      <div class="overlay">
+        <h2>👩‍🍳 À propos de la cuisinière</h2>
+        <p>
+          Zamzam Senoussi Haggar est une passionnée de cuisine depuis son enfance. <br>
+          Elle a grandi dans une famille où la cuisine était un art transmis de génération en génération. <br>
+          Inspirée par les saveurs africaines et orientales, elle crée des plats authentiques et généreux. <br>
+          Chaque recette est préparée avec amour, soin et des ingrédients frais. <br>
+          Elle aime partager son savoir-faire et régaler les papilles de ses invités. <br>
+          Sa cuisine raconte des histoires de traditions et de convivialité. <br>
+          Elle propose une fusion de goûts locaux et internationaux pour satisfaire tous les palais. <br>
+          Zamzam croit que cuisiner est une manière de prendre soin des autres. <br>
+          Grâce à sa créativité, elle innove en respectant les racines culturelles de chaque plat. <br>
+          Aujourd’hui, elle souhaite faire découvrir au monde les trésors culinaires du Tchad et d’ailleurs.
+        </p>
+      </div>
+    </section>
+
+    <section id="menu">
+      <h2>Notre Menu</h2>
+      <div class="menu">
+        <div class="dish">
+          <video controls>
+            <source src="riz.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
+          <h3>Riz (viande, poulet ou poisson)</h3>
+          <p class="price">10 000 FCFA / 5 000 FCFA</p>
+        </div>
+        <div class="dish">
+          <video controls>
+            <source src="couscous.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
+          <h3>Couscous (viande, poulet ou poisson)</h3>
+          <p class="price">10 000 FCFA / 5 000 FCFA</p>
+        </div>
+        <div class="dish">
+          <video controls>
+            <source src="gateau.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
+          <h3>Gâteau au chocolat</h3>
+          <p class="price">Complet : 10 000 FCFA | Demi : 2 500 FCFA</p>
+        </div>
+        <div class="dish">
+          <video controls>
+            <source src="donnut.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la vidéo.
+          </video>
+          <h3>Donuts</h3>
+          <p class="price">5 000 FCFA / 2 500 FCFA</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="commande">
+      <h2>🛒 Commande en ligne</h2>
+      <form onsubmit="sendToWhatsApp(); return false;">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="phone">Téléphone :</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="meal">Plat :</label>
+        <select id="meal" name="meal">
+          <option value="Riz">Riz</option>
+          <option value="Couscous">Couscous</option>
+          <option value="Gâteau au chocolat">Gâteau au chocolat</option>
+          <option value="Donuts">Donuts</option>
+        </select>
+
+        <label for="portion">Portion :</label>
+        <select id="portion" name="portion">
+          <option value="10 000 FCFA">10 000 FCFA</option>
+          <option value="5 000 FCFA">5 000 FCFA</option>
+          <option value="2 500 FCFA">2 500 FCFA</option>
+        </select>
+
+        <button type="submit">Envoyer commande</button>
+      </form>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>📍 Contact & Adresse</h2>
+      <p><strong>Adresse :</strong> N’Djamena, Tchad</p>
+      <p><strong>Téléphone :</strong> +235 68 59 95 09</p>
+      <p><strong>Email :</strong> zamzamsenoussihaggar@example.com</p>
+      <p><strong>Suivez-nous sur les réseaux sociaux :</strong></p>
+      <p>
+        <a href="https://facebook.com/zamzamsenoussihaggar" target="_blank" style="color:#cc0066; text-decoration:none;">Facebook</a> |
+        <a href="https://instagram.com/zamzamsenoussihaggar" target="_blank" style="color:#cc0066; text-decoration:none;">Instagram</a> |
+        <a href="https://twitter.com/zamzamsenoussihaggar" target="_blank" style="color:#cc0066; text-decoration:none;">Twitter</a>
+      </p>
+    </section>
+  </div>
+
+</body>
+</html>
